@@ -48,7 +48,7 @@
 				for(var i=0;i<8;i++){
 					e[i][0]=Math.floor(32*Math.random());
 					e[i][1]=Math.floor(16*Math.random());
-					while(map[e[i][1]][e[i][0]]=="1"){
+					while(map[Math.floor(e[i][1])][Math.floor(e[i][0)]]=="1"){
 						e[i][0]=Math.floor(32*Math.random());
 						e[i][1]=Math.floor(16*Math.random());
 					}
@@ -73,7 +73,7 @@
 					var r2=Math.floor(3*Math.random())-1;
 					e[i][0]+=r1/3;
 					e[i][1]+=r2/3;
-					if(map[e[i][1]][e[i][0]]=="1"){
+					if(map[Math.floor(e[i][1])][Math.floor(e[i][0])]=="1"){
 						e[i][0]-=r1/3;
 						e[i][1]-=r2/3;
 					}
