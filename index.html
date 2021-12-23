@@ -18,6 +18,18 @@
 			canvas.height=height;
 			var ctx=canvas.getContext("2d");
 			ctx.fillStyle="#ffffff";
-			ctx.fillRect(width/2,height/2,100,100);
+			ctx.font="15px Monospace";
+			function text(str,x,y,mode){
+				if(mode==0){
+					ctx.fillText(str,x*10,10+y*10);
+				}else{
+					for(var i=0;i<str.length;i++){
+						ctx.fillText(str[i],x*10+i*10,10+y*10);
+					}
+				}
+			}
+			text("yeet",0,0,0);
+			text("oof",4,0,0);
+			text("lalalalalalala",10,10,1);
 		</script>
 </html>
