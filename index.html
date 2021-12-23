@@ -57,12 +57,12 @@
 			function draw(){
 				text("~",0,0,"#0000ff");
 				for(var i=0;i<8;i++){
-					text("x",p[0]-e[i][0],p[1]-e[i][1],"#ff0000");
+					text("x",e[i][0]-p[0],e[i][1]-p[1],"#ff0000");
 				}
 				for(var xi=0;xi<32;xi++){
 					for(var yi=0;yi<16;yi++){
 						if(map[yi][xi]=="1"){
-							text("#",p[0]-xi,p[1]-yi,"#ffffff");
+							text("#",xi-p[0],yi-p[1],"#ffffff");
 						}
 					}
 				}
