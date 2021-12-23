@@ -11,6 +11,26 @@
 	<body>
 		<canvas id="canvas"></canvas>
 		<script>
+			var map=[
+				"11111111111111111111111111111111",
+				"10010001000000000010000010000001",
+				"10010001110000000010000010000001",
+				"10010000000000000010000010000001",
+				"10010001100000000000000011000001",
+				"10010011000000000010000000000001",
+				"10010010000000000011110001000001",
+				"10011110011011100000010001000001",
+				"10000000000000100000010001111111",
+				"10011110011011110010010000010001",
+				"10000100010000010011111100010001",
+				"10000100011000010000000100010001",
+				"10000100000000011111110100010001",
+				"10000111111000010000010100000001",
+				"10000000000000000000010100000001",
+				"11111111111111111111111111111111"
+			]
+			var p=[1,1];
+			var e=[[30,14],[30,14],[30,14],[30,14],[30,14],[30,14],[30,14],[30,14]];
 			var canvas=document.getElementById("canvas");
 			var width=window.innerWidth;
 			var height=window.innerHeight;
@@ -21,11 +41,49 @@
 			function text(str,x,y,color){
 				ctx.fillStyle=color;
 				for(var i=0;i<str.length;i++){
-					ctx.fillText(str[i],x*10+i*10,10+y*10);
+					ctx.fillText(str[i],width/2+x*10+i*10,height/2+10+y*10);
 				}
 			}
-			text("yeet456789",0,0,"#ffffff");
-			text("eeeeeeeeee",11,0,"#888888");
-			text("llwwhhwwll",21,0,"#886622");
+			function setup(){
+				for(var i=0;i<8;i++){
+					e[i][0]=Math.floor(32*Math.random());
+					e[i][1]=Math.floor(16*Math.random());
+					while(map[e[i][0]][e[i][1]]=="1"){
+						e[i][0]=Math.floor(32*Math.random());
+						e[i][1]=Math.floor(16*Math.random());
+					}
+				}
+			}
+			function draw(){
+				text("~",0,0,"#0000ff");
+				for(var i=0;i<8;i++){
+					text("x",e[i][0],e[i][1],"#ff0000");
+				}
+				for(var xi=0;xi<32;xi++){
+					for(var yi=0;yi<16;yi++){
+						if(map[yi][xi]=="1"){
+							text("#",p[0]-xi,p[1]-yi,"#ffffff");
+						}
+					}
+				}
+			}
+			function move(){
+				for(var i=0;i<8;i++){
+					var r1=Math.floor(3*Math.random())-1;
+					var r2=Math.floor(3*Math.random())-1;
+					e[i][0]+=r1;
+					e[i][1]+=r2;
+					if(map[e[i][0]][e[i][1]]=="1"){
+						e[i][0]-=r1;
+						e[i][1]-=r2;
+					}
+				}
+			}
+			function loop(){
+				move();
+				draw();
+			}
+			setup();
+			setInterval(loop,50);
 		</script>
 </html>
