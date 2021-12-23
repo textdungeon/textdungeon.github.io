@@ -17,15 +17,15 @@
 			canvas.width=width;
 			canvas.height=height;
 			var ctx=canvas.getContext("2d");
-			ctx.fillStyle="#ffffff";
 			ctx.font="15px Monospace";
-			function text(str,x,y){
+			function text(str,x,y,color){
+				ctx.fillStyle=color;
 				for(var i=0;i<str.length;i++){
 					ctx.fillText(str[i],x*10+i*10,10+y*10);
 				}
 			}
-			text("yeet456789",0,0);
-			text("eeeeeeeeee",11,0);
-			text("llwwhhwwll",21,0);
+			text("yeet456789",0,0,"#ffffff");
+			text("eeeeeeeeee",11,0,"#888888");
+			text("llwwhhwwll",21,0,"#886622");
 		</script>
 </html>
