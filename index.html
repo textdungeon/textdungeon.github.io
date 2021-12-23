@@ -88,19 +88,29 @@
 			setInterval(loop,50);
 			document.onkeypress=function(e){
 				e=e||window.event;
+				var mx=0;
+				var my=0;
 				switch(e.key){
 					case "w":
-						p[1]++;
+						p[1]--;
+						my--;
 						break;
 					case "a":
-						p[0]++;
+						p[0]--;
+						mx--;
 						break;
 					case "s":
-						p[1]--;
+						p[1]++;
+						my++;
 						break;
 					case "d":
-						p[0]--;
+						p[0]++;
+						mx++;
 						break;
+				}
+				if(map[p[1]][p[0]]=="1"){
+					p[0]-=mx;
+					p[1]-=my;
 				}
 			};
 		</script>
