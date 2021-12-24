@@ -63,10 +63,10 @@
 			function setup(){
 				for(var i=0;i<24;i++){
 					e[i][0]=Math.floor(64*Math.random());
-					e[i][1]=Math.floor(64*Math.random());
+					e[i][1]=Math.floor(32*Math.random());
 					while(map[Math.floor(e[i][1])][Math.floor(e[i][0])]=="1"){
 						e[i][0]=Math.floor(64*Math.random());
-						e[i][1]=Math.floor(64*Math.random());
+						e[i][1]=Math.floor(32*Math.random());
 					}
 				}
 			}
@@ -76,7 +76,7 @@
 					text("x",Math.floor(e[i][0]-p[0]),Math.floor(e[i][1]-p[1]),"#ff0000");
 				}
 				for(var xi=0;xi<64;xi++){
-					for(var yi=0;yi<64;yi++){
+					for(var yi=0;yi<32;yi++){
 						if(map[yi][xi]=="1"){
 							text("#",xi-p[0],yi-p[1],"#ffffff");
 						}
